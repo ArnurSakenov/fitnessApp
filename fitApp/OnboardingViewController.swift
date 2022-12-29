@@ -75,7 +75,7 @@ class OnboardingViewController: UIViewController {
         button.setTitle("Sign up", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(#colorLiteral(red: 0.1551918685, green: 0.7838412523, blue: 0.2506273389, alpha: 1), for: .normal)
-        button.addTarget(nil, action: #selector(signEmailTap), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(signUp), for: .touchUpInside)
         return button
     }()
     
@@ -96,21 +96,22 @@ class OnboardingViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        button.addTarget(nil, action: #selector(signGoogleTap), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(signEmailTap), for: .touchUpInside)
         button.layer.cornerRadius = 8
         button.clipsToBounds = true
         return button
     }()
+    
+    @objc func signUp(){
+        let signUpVC = signUpViewController()
+        navigationController?.pushViewController(signUpVC, animated: true)
+    }
     
     @objc func signEmailTap(){
         let emailVC = signEmailViewController()
         navigationController?.pushViewController(emailVC, animated: true)
     }
     
-    @objc func signGoogleTap(){
-        let googleVC = signGoogleViewController()
-        navigationController?.pushViewController(googleVC, animated: true)
-    }
     
     func addSubviews(){
         view.addSubview(backgroundImage)

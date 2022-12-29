@@ -1,18 +1,18 @@
 //
-//  signGoogleViewController.swift
+//  signUpViewController.swift
 //  fitApp
 //
-//  Created by Artyom Prima on 29.12.2022.
+//  Created by Arnur Sakenov on 29.12.2022.
 //
 
 import UIKit
 
-class signGoogleViewController: UIViewController {
+class signUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .green
+        view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        // Do any additional setup after loading the view.
     }
     
 

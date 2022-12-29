@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58551571295DB9CC00A95485 /* OnboardingViewController.swift */; };
 		58551574295DC3F700A95485 /* signEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58551573295DC3F700A95485 /* signEmailViewController.swift */; };
-		58551576295DC41C00A95485 /* signGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58551575295DC41C00A95485 /* signGoogleViewController.swift */; };
+		5F173B31295DD1000069A78B /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F173B30295DD0FF0069A78B /* signUpViewController.swift */; };
 		5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC0295C11570065071E /* AppDelegate.swift */; };
 		5FA8BDC3295C11570065071E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC2295C11570065071E /* SceneDelegate.swift */; };
 		5FA8BDCA295C11580065071E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC9295C11580065071E /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		58551571295DB9CC00A95485 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		58551573295DC3F700A95485 /* signEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signEmailViewController.swift; sourceTree = "<group>"; };
-		58551575295DC41C00A95485 /* signGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signGoogleViewController.swift; sourceTree = "<group>"; };
+		5F173B30295DD0FF0069A78B /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		5FA8BDBD295C11570065071E /* fitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA8BDC0295C11570065071E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FA8BDC2295C11570065071E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,11 +61,11 @@
 				5FA8BDC0295C11570065071E /* AppDelegate.swift */,
 				58551571295DB9CC00A95485 /* OnboardingViewController.swift */,
 				58551573295DC3F700A95485 /* signEmailViewController.swift */,
-				58551575295DC41C00A95485 /* signGoogleViewController.swift */,
 				5FA8BDC2295C11570065071E /* SceneDelegate.swift */,
 				5FA8BDC9295C11580065071E /* Assets.xcassets */,
 				5FA8BDCB295C11580065071E /* LaunchScreen.storyboard */,
 				5FA8BDCE295C11580065071E /* Info.plist */,
+				5F173B30295DD0FF0069A78B /* signUpViewController.swift */,
 			);
 			path = fitApp;
 			sourceTree = "<group>";
@@ -140,8 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58551576295DC41C00A95485 /* signGoogleViewController.swift in Sources */,
 				58551574295DC3F700A95485 /* signEmailViewController.swift in Sources */,
+				5F173B31295DD1000069A78B /* signUpViewController.swift in Sources */,
 				5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */,
 				58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */,
 				5FA8BDC3295C11570065071E /* SceneDelegate.swift in Sources */,
