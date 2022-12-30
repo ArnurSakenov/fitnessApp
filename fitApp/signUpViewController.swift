@@ -28,15 +28,63 @@ class signUpViewController: UIViewController {
         return view
     }()
     
-    var userNameField: UITextField = {
-        let field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.text = "Username"
-        field.backgroundColor = .yellow
-        return field
+    
+    private let userNameField: UITextField = {
+        let login = UITextField()
+        login.translatesAutoresizingMaskIntoConstraints = false
+        login.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+        login.leftViewMode = .always
+        login.attributedPlaceholder = NSAttributedString (
+            string: "Username",
+            attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.58187747, green: 0.6370299459, blue: 0.7215286493, alpha: 1)])
+        login.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: login.frame.height))
+        login.keyboardType = .emailAddress
+        login.textColor = .white
+        login.font = UIFont.systemFont(ofSize: 16)
+        login.autocapitalizationType = .none
+        login.returnKeyType = .done
+        return login
         
     }()
-    var signEmailButton: UIButton = {
+    
+    private let emailField: UITextField = {
+        let email = UITextField()
+        email.translatesAutoresizingMaskIntoConstraints = false
+        email.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+        email.leftViewMode = .always
+        email.attributedPlaceholder = NSAttributedString (
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.58187747, green: 0.6370299459, blue: 0.7215286493, alpha: 1)])
+        email.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: email.frame.height))
+        email.keyboardType = .emailAddress
+        email.textColor = .white
+        email.font = UIFont.systemFont(ofSize: 16)
+        email.autocapitalizationType = .none
+        email.returnKeyType = .done
+        return email
+        
+    }()
+    private let passwordField: UITextField = {
+       let password = UITextField()
+        password.translatesAutoresizingMaskIntoConstraints = false
+        password.layer.borderColor = UIColor.lightGray.cgColor
+        password.layer.borderWidth = 0
+        password.attributedPlaceholder = NSAttributedString (
+        string: "Password",
+        attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.58187747, green: 0.6370299459, blue: 0.7215286493, alpha: 1)])
+        password.leftViewMode = .always
+        password.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: password.frame.height))
+        password.keyboardType = .default
+        password.textColor = .white
+        password.font = UIFont.systemFont(ofSize: 16)
+        password.autocapitalizationType = .none
+        password.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+        password.returnKeyType = .done
+        
+        return password
+        
+    }()
+    private let signEmailButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(" Sign Up with Apple", for: .normal)
@@ -50,7 +98,7 @@ class signUpViewController: UIViewController {
         return button
     }()
     
-    var signGoogleButton: UIButton = {
+    private let signGoogleButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(" Sign Up with Google", for: .normal)
@@ -62,6 +110,18 @@ class signUpViewController: UIViewController {
         button.clipsToBounds = true
         return button
     }()
+    private let continueButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Continue", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.1320899725, green: 0.7720097303, blue: 0.3664159775, alpha: 1)
+        button.layer.cornerRadius = 8
+        button.clipsToBounds = true
+        return button
+    }()
+    
     var buttonStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -71,12 +131,52 @@ class signUpViewController: UIViewController {
         stack.clipsToBounds = true
         return stack
     }()
-    var fieldStackView: UIStackView = {
+
+    private let signUpWithEmailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Or sign up with email"
+        label.textColor = .gray
+        
+        return label
+    }()
+    
+    var signInButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Sign In", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        button.setTitleColor(#colorLiteral(red: 0.1551918685, green: 0.7838412523, blue: 0.2506273389, alpha: 1), for: .normal)
+        button.addTarget(nil, action: #selector(signIn), for: .touchUpInside)
+        return button
+    }()
+    
+    var haveAccountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textColor = .white
+        label.text = "Already have an account? "
+        return label
+    }()
+    
+    var policyLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textColor = .white
+        label.text = "By continuing forwards, you agree to Fitline's Privacy Policy and Terms & Conditions "
+        return label
+    }()
+    @objc func signIn (){
+        let signIn = signEmailViewController()
+        navigationController?.pushViewController(signIn, animated: true)
+        
+    }
+    var labelStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.spacing = 12
+        stack.axis = .horizontal
+        stack.spacing = 1
         stack.clipsToBounds = true
         return stack
     }()
@@ -85,10 +185,19 @@ class signUpViewController: UIViewController {
         view.addSubview(contentView)
         
         contentView.addSubview(buttonStackView)
-        contentView.addSubview(fieldStackView)
-        fieldStackView.addArrangedSubview(userNameField)
+     
+        
         buttonStackView.addArrangedSubview(signEmailButton)
         buttonStackView.addArrangedSubview(signGoogleButton)
+        buttonStackView.addArrangedSubview(signUpWithEmailLabel)
+        buttonStackView.addArrangedSubview(userNameField)
+        buttonStackView.addArrangedSubview(emailField)
+        buttonStackView.addArrangedSubview(passwordField)
+        buttonStackView.addArrangedSubview(continueButton)
+        labelStackView.addArrangedSubview(haveAccountLabel)
+        labelStackView.addArrangedSubview(signInButton)
+        buttonStackView.addArrangedSubview(labelStackView)
+        buttonStackView.addArrangedSubview(policyLabel)
     }
     func setContstraints(){
         NSLayoutConstraint.activate([
@@ -100,12 +209,9 @@ class signUpViewController: UIViewController {
             buttonStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 124),
             buttonStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             buttonStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -560),
+            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -100),
             
-            fieldStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 45),
-            fieldStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            fieldStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            fieldStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -560),
+           
         
         ])
     }

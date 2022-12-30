@@ -16,7 +16,7 @@ class OnboardingViewController: UIViewController {
         imageAnimated()
     }
     
-    var backgroundImage: UIImageView = {
+    private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "woman")
         imageView.translatesAutoresizingMaskIntoConstraints = false

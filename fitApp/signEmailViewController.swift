@@ -12,6 +12,11 @@ class signEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+    //снизу код добавил чтобы отличать экраны от друг друга , этот код добавляет сверху название экрана
+        self.title = "Sign In"
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
+    // можно потом удалить его , тебе он вроде не нужен 
     }
     
 
