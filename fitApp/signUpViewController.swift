@@ -43,6 +43,8 @@ class signUpViewController: UIViewController {
         login.font = UIFont.systemFont(ofSize: 16)
         login.autocapitalizationType = .none
         login.returnKeyType = .done
+        login.layer.cornerRadius = 8
+        login.clipsToBounds = true
         return login
         
     }()
@@ -61,6 +63,8 @@ class signUpViewController: UIViewController {
         email.font = UIFont.systemFont(ofSize: 16)
         email.autocapitalizationType = .none
         email.returnKeyType = .done
+        
+        
         return email
         
     }()
@@ -80,6 +84,8 @@ class signUpViewController: UIViewController {
         password.autocapitalizationType = .none
         password.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
         password.returnKeyType = .done
+        password.layer.cornerRadius = 8
+        password.clipsToBounds = true
         
         return password
         
@@ -125,6 +131,7 @@ class signUpViewController: UIViewController {
     var buttonStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
+        //stack.alignment = .center
         stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.spacing = 12
@@ -136,7 +143,7 @@ class signUpViewController: UIViewController {
         let label = UILabel()
         label.text = "Or sign up with email"
         label.textColor = .gray
-        
+       
         return label
     }()
     
@@ -208,6 +215,8 @@ class signUpViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.topAnchor.constraint(equalTo: view.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+           
+           
             
             buttonStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 124),
             buttonStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
