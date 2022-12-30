@@ -167,11 +167,13 @@ class signUpViewController: UIViewController {
         label.text = "By continuing forwards, you agree to Fitline's Privacy Policy and Terms & Conditions "
         return label
     }()
+    
     @objc func signIn (){
         let signIn = signEmailViewController()
         navigationController?.pushViewController(signIn, animated: true)
         
     }
+    
     var labelStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -196,8 +198,9 @@ class signUpViewController: UIViewController {
         buttonStackView.addArrangedSubview(continueButton)
         labelStackView.addArrangedSubview(haveAccountLabel)
         labelStackView.addArrangedSubview(signInButton)
-        buttonStackView.addArrangedSubview(labelStackView)
-        buttonStackView.addArrangedSubview(policyLabel)
+        contentView.addSubview(labelStackView)
+        
+        
     }
     func setContstraints(){
         NSLayoutConstraint.activate([
@@ -209,8 +212,12 @@ class signUpViewController: UIViewController {
             buttonStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 124),
             buttonStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             buttonStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -100),
+            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200),
             
+            labelStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 24),
+            labelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 70),
+            labelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -70),
+            labelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -150)
            
         
         ])
