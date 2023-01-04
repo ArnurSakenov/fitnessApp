@@ -103,12 +103,12 @@ class OnboardingViewController: UIViewController {
     }()
     
     @objc func signUp(){
-        let signUpVC = signUpViewController()
+        let signUpVC = SignUpViewController()
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     @objc func signEmailTap(){
-        let emailVC = signEmailViewController()
+        let emailVC = LoginViewController()
         navigationController?.pushViewController(emailVC, animated: true)
     }
     
