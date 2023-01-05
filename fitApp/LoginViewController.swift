@@ -122,13 +122,14 @@ class LoginViewController: UIViewController {
 
     private let signInWithEmailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Or sign in with email"
-        label.textColor = .gray
-       
+        label.text = "———    Or sign in with email    ———"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.layer.opacity = 0.5
         return label
     }()
     
-    var signInButton: UIButton = {
+    var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Forgot password?", for: .normal)
@@ -142,7 +143,7 @@ class LoginViewController: UIViewController {
         return .darkContent
     }
 
-    var policyLabel: UILabel = {
+    var forgotPassword: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .regular)
@@ -152,8 +153,8 @@ class LoginViewController: UIViewController {
     }()
     
     @objc func signIn (){
-        let signIn = LoginViewController()
-        navigationController?.pushViewController(signIn, animated: true)
+        let forgotPassword = ForgotPasswordViewController()
+        navigationController?.pushViewController(forgotPassword, animated: true)
         
     }
     
@@ -175,7 +176,7 @@ class LoginViewController: UIViewController {
         buttonStackView.addArrangedSubview(emailField)
         buttonStackView.addArrangedSubview(passwordField)
         buttonStackView.addArrangedSubview(continueButton)
-        labelStackView.addArrangedSubview(signInButton)
+        labelStackView.addArrangedSubview(forgotPasswordButton)
         contentView.addSubview(labelStackView)
     }
     
@@ -189,7 +190,7 @@ class LoginViewController: UIViewController {
             buttonStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 124),
             buttonStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             buttonStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200),
+            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -300),
             
             labelStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 24),
             labelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 70),
