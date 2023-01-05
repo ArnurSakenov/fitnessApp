@@ -14,6 +14,7 @@
 		5FA8BDC3295C11570065071E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC2295C11570065071E /* SceneDelegate.swift */; };
 		5FA8BDCA295C11580065071E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC9295C11580065071E /* Assets.xcassets */; };
 		5FA8BDCD295C11580065071E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA8BDCB295C11580065071E /* LaunchScreen.storyboard */; };
+		5FE72AB82966BF8800BEB64B /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE72AB72966BF8800BEB64B /* VerifyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5FA8BDC9295C11580065071E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FA8BDCC295C11580065071E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FA8BDCE295C11580065071E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE72AB72966BF8800BEB64B /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				5FA8BDCB295C11580065071E /* LaunchScreen.storyboard */,
 				5FA8BDCE295C11580065071E /* Info.plist */,
 				5F173B30295DD0FF0069A78B /* SignUpViewController.swift */,
+				5FE72AB72966BF8800BEB64B /* VerifyViewController.swift */,
 			);
 			path = fitApp;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				5F173B31295DD1000069A78B /* SignUpViewController.swift in Sources */,
 				5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */,
 				58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */,
+				5FE72AB82966BF8800BEB64B /* VerifyViewController.swift in Sources */,
 				06635E6C29654E0100504ABE /* LoginViewController.swift in Sources */,
 				5FA8BDC3295C11570065071E /* SceneDelegate.swift in Sources */,
 			);

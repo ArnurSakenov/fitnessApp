@@ -124,6 +124,7 @@ class SignUpViewController: UIViewController {
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(nil, action: #selector(verify), for: .touchUpInside)
         button.backgroundColor = #colorLiteral(red: 0.1320899725, green: 0.7720097303, blue: 0.3664159775, alpha: 1)
         button.layer.cornerRadius = 8
         button.clipsToBounds = true
@@ -181,6 +182,10 @@ class SignUpViewController: UIViewController {
         let signIn = LoginViewController()
         navigationController?.pushViewController(signIn, animated: true)
         
+    }
+    @objc func verify(){
+        let verify = VerifyViewController()
+        navigationController?.pushViewController(verify, animated: true)
     }
     
     var labelStackView: UIStackView = {
