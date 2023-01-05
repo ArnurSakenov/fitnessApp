@@ -16,6 +16,7 @@ class VerifyViewController: UIViewController {
         setContstraints()
         // Do any additional setup after loading the view.
     }
+    
     private let continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -27,17 +28,50 @@ class VerifyViewController: UIViewController {
         button.clipsToBounds = true
         return button
     }()
+    
+    private let identityLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 32)
+        label.text = "Verify your identity"
+        label.textColor = .white
+        label.layer.opacity = 0.5   
+        return label
+    }()
+    
+    private let methodLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.text = "Choose a method to verify your identity"
+        label.textColor = .white
+        label.layer.opacity = 0.5
+        return label
+    }()
+    
+    private let labelStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing =  0
+        stack.clipsToBounds = true
+        return stack
+    }()
+    
     func addSubviews(){
+        labelStackView.addArrangedSubview(identityLabel)
+        labelStackView.addArrangedSubview(methodLabel)
+        view.addSubview(labelStackView)
         view.addSubview(continueButton)
-       
     }
     
     func setContstraints(){
         NSLayoutConstraint.activate([
-            continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            continueButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -500)
+            labelStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+            labelStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -680),
+            labelStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            labelStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         
         ])
     }

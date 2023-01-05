@@ -22,7 +22,8 @@ class SignUpViewController: UIViewController {
         setContstraints()
         // Do any additional setup after loading the view.
     }
-    var contentView: UIView = {
+    
+    private let contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -70,6 +71,7 @@ class SignUpViewController: UIViewController {
         return email
         
     }()
+    
     private let passwordField: UITextField = {
        let password = UITextField()
         password.translatesAutoresizingMaskIntoConstraints = false
@@ -88,10 +90,11 @@ class SignUpViewController: UIViewController {
         password.returnKeyType = .done
         password.layer.cornerRadius = 8
         password.clipsToBounds = true
-        
+        password.isSecureTextEntry = true
         return password
         
     }()
+    
     private let signEmailButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -118,6 +121,7 @@ class SignUpViewController: UIViewController {
         button.clipsToBounds = true
         return button
     }()
+    
     private let continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -131,7 +135,7 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
-    var buttonStackView: UIStackView = {
+    private let buttonStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         //stack.alignment = .center
@@ -151,7 +155,7 @@ class SignUpViewController: UIViewController {
         return label
     }()
     
-    var signInButton: UIButton = {
+    private let signInButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign In", for: .normal)
@@ -161,7 +165,7 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
-    var haveAccountLabel: UILabel = {
+    private let haveAccountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .regular)
@@ -170,7 +174,7 @@ class SignUpViewController: UIViewController {
         return label
     }()
     
-    var policyLabel: UILabel = {
+    private let policyLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .regular)
@@ -184,12 +188,13 @@ class SignUpViewController: UIViewController {
         navigationController?.pushViewController(signIn, animated: true)
         
     }
+    
     @objc func verify(){
         let verify = VerifyViewController()
         navigationController?.pushViewController(verify, animated: true)
     }
     
-    var labelStackView: UIStackView = {
+    private let labelStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -200,10 +205,7 @@ class SignUpViewController: UIViewController {
     
     func addSubviews(){
         view.addSubview(contentView)
-        
         contentView.addSubview(buttonStackView)
-     
-        
         buttonStackView.addArrangedSubview(signEmailButton)
         buttonStackView.addArrangedSubview(signGoogleButton)
         buttonStackView.addArrangedSubview(signUpWithEmailLabel)
@@ -214,17 +216,15 @@ class SignUpViewController: UIViewController {
         labelStackView.addArrangedSubview(haveAccountLabel)
         labelStackView.addArrangedSubview(signInButton)
         contentView.addSubview(labelStackView)
-        
-        
     }
+    
     func setContstraints(){
         NSLayoutConstraint.activate([
+            
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.topAnchor.constraint(equalTo: view.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-           
-           
             
             buttonStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 124),
             buttonStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
@@ -235,18 +235,6 @@ class SignUpViewController: UIViewController {
             labelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 70),
             labelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -70),
             labelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -150)
-           
-        
         ])
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
