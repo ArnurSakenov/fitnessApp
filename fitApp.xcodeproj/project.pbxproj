@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06635E6C29654E0100504ABE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06635E6B29654E0100504ABE /* LoginViewController.swift */; };
+		068139B62966A95900BB745C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068139B52966A95900BB745C /* ForgotPasswordViewController.swift */; };
+		068139B82966C00E00BB745C /* EnterNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068139B72966C00E00BB745C /* EnterNewPasswordViewController.swift */; };
 		58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58551571295DB9CC00A95485 /* OnboardingViewController.swift */; };
 		5F173B31295DD1000069A78B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F173B30295DD0FF0069A78B /* SignUpViewController.swift */; };
 		5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC0295C11570065071E /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		06635E6B29654E0100504ABE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		068139B52966A95900BB745C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		068139B72966C00E00BB745C /* EnterNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNewPasswordViewController.swift; sourceTree = "<group>"; };
 		58551571295DB9CC00A95485 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		5F173B30295DD0FF0069A78B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5FA8BDBD295C11570065071E /* fitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				06635E6B29654E0100504ABE /* LoginViewController.swift */,
+				068139B52966A95900BB745C /* ForgotPasswordViewController.swift */,
+				068139B72966C00E00BB745C /* EnterNewPasswordViewController.swift */,
 				5FA8BDC0295C11570065071E /* AppDelegate.swift */,
 				58551571295DB9CC00A95485 /* OnboardingViewController.swift */,
 				5FA8BDC2295C11570065071E /* SceneDelegate.swift */,
@@ -140,8 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068139B82966C00E00BB745C /* EnterNewPasswordViewController.swift in Sources */,
 				5F173B31295DD1000069A78B /* SignUpViewController.swift in Sources */,
 				5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */,
+				068139B62966A95900BB745C /* ForgotPasswordViewController.swift in Sources */,
 				58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */,
 				06635E6C29654E0100504ABE /* LoginViewController.swift in Sources */,
 				5FA8BDC3295C11570065071E /* SceneDelegate.swift in Sources */,

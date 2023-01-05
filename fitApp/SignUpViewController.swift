@@ -143,9 +143,10 @@ class SignUpViewController: UIViewController {
 
     private let signUpWithEmailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Or sign up with email"
-        label.textColor = .gray
-       
+        label.text = "———    Or sign up with email    ———"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.layer.opacity = 0.5
         return label
     }()
     
@@ -223,7 +224,7 @@ class SignUpViewController: UIViewController {
             buttonStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 124),
             buttonStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             buttonStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200),
+            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -240),
             
             labelStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 24),
             labelStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 70),
