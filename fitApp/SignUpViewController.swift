@@ -7,7 +7,7 @@
 
 import UIKit
 
-class signUpViewController: UIViewController {
+class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +61,8 @@ class signUpViewController: UIViewController {
         email.keyboardType = .emailAddress
         email.textColor = .white
         email.font = UIFont.systemFont(ofSize: 16)
+        email.layer.cornerRadius = 8
+
         email.autocapitalizationType = .none
         email.returnKeyType = .done
         
@@ -162,7 +164,7 @@ class signUpViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textColor = .white
-        label.text = "Already have an account? "
+        label.text = "Already have an account?"
         return label
     }()
     
@@ -176,7 +178,7 @@ class signUpViewController: UIViewController {
     }()
     
     @objc func signIn (){
-        let signIn = signEmailViewController()
+        let signIn = LoginViewController()
         navigationController?.pushViewController(signIn, animated: true)
         
     }
