@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
+        navigationController?.navigationBar.prefersLargeTitles = false
         addSubviews()
         setContstraints()
         // Do any additional setup after loading the view.

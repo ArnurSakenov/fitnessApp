@@ -12,9 +12,19 @@ class VerifyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        title = "Verify your identity"
+        
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+       
+        navigationController?.navigationBar.prefersLargeTitles = true
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         addSubviews()
         setContstraints()
         // Do any additional setup after loading the view.
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private let continueButton: UIButton = {
@@ -29,15 +39,7 @@ class VerifyViewController: UIViewController {
         return button
     }()
     
-    private let identityLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 32)
-        label.text = "Verify your identity"
-        label.textColor = .white
-        label.layer.opacity = 0.5   
-        return label
-    }()
+  
     
     private let emailViewBlock: UIView = {
         let block = UIView(frame: CGRect(x: 0, y: 0, width: 327, height: 72))
@@ -57,18 +59,30 @@ class VerifyViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16)
+       
         label.text = "Choose a method to verify your identity"
         label.textColor = .white
         label.layer.opacity = 0.5
         return label
     }()
     
+//    private let verify: UILabel = {
+//        let label = UILabel()
+//        label.numberOfLines = 0
+//        label.font = UIFont.systemFont(ofSize: 16)
+//        label.backgroundColor = .green
+//        label.text = "Verify your identity"
+//        label.textColor = .white
+//        label.layer.opacity = 0.5
+//        return label
+//    }()
+    
     private let verificationTypeStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.distribution = .fillEqually
-        stack.spacing =  2
+        stack.spacing =  16
         stack.clipsToBounds = true
         return stack
     }()
@@ -78,13 +92,13 @@ class VerifyViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.distribution = .fillEqually
-        stack.spacing = 16
+        stack.spacing = 1
         stack.clipsToBounds = true
         return stack
     }()
     
     func addSubviews(){
-        labelStackView.addArrangedSubview(identityLabel)
+//        labelStackView.addArrangedSubview(verify)
         labelStackView.addArrangedSubview(methodLabel)
         verificationTypeStackView.addArrangedSubview(emailViewBlock)
         verificationTypeStackView.addArrangedSubview(phoneNumberView)
