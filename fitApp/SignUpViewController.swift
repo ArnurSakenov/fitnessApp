@@ -21,7 +21,6 @@ class SignUpViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         addSubviews()
         setContstraints()
-        // Do any additional setup after loading the view.
     }
     
     private let contentView: UIView = {

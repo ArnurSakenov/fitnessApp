@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,19 +45,19 @@ class LoginViewController: UIViewController {
         email.layer.cornerRadius = 8
         email.autocapitalizationType = .none
         email.returnKeyType = .done
-    
+        
         return email
     }()
     
     private let passwordField: UITextField = {
         
-       let password = UITextField()
+        let password = UITextField()
         password.translatesAutoresizingMaskIntoConstraints = false
         password.layer.borderColor = UIColor.lightGray.cgColor
         password.layer.borderWidth = 0
         password.attributedPlaceholder = NSAttributedString (
-        string: "Password",
-        attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.58187747, green: 0.6370299459, blue: 0.7215286493, alpha: 1)])
+            string: "Password",
+            attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.58187747, green: 0.6370299459, blue: 0.7215286493, alpha: 1)])
         password.leftViewMode = .always
         password.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: password.frame.height))
         password.keyboardType = .default
@@ -104,6 +104,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Sign In", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(nil, action: #selector(signIn), for: .touchUpInside)
         button.backgroundColor = #colorLiteral(red: 0.1320899725, green: 0.7720097303, blue: 0.3664159775, alpha: 1)
         button.layer.cornerRadius = 8
         button.clipsToBounds = true
@@ -119,7 +120,7 @@ class LoginViewController: UIViewController {
         stack.clipsToBounds = true
         return stack
     }()
-
+    
     private let signInWithEmailLabel: UILabel = {
         let label = UILabel()
         label.text = "———    Or sign in with email    ———"
@@ -135,14 +136,14 @@ class LoginViewController: UIViewController {
         button.setTitle("Forgot password?", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(#colorLiteral(red: 0.1551918685, green: 0.7838412523, blue: 0.2506273389, alpha: 1), for: .normal)
-        button.addTarget(nil, action: #selector(signIn), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(forgotPasswordTapped), for: .touchUpInside)
         return button
     }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }
-
+    
     var forgotPassword: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -152,7 +153,47 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    @objc func signIn (){
+    @objc func signIn(){
+       
+        let homeViewController = UINavigationController(rootViewController: HomeViewController())
+        homeViewController.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "home"),
+            selectedImage: UIImage(named: "home1")
+        )
+        
+        let searchViewController = UINavigationController(rootViewController: SearchViewController())
+        searchViewController.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "search"),
+            selectedImage: UIImage(named: "search1")
+        )
+        
+        let articleViewController = UINavigationController(rootViewController: ArticleViewController())
+        articleViewController.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "article"),
+            selectedImage: UIImage(named: "article")
+        )
+        
+        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        profileViewController.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "profile"),
+            selectedImage: UIImage(named: "profile1")
+        )
+        
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.1551918685, green: 0.7838412523, blue: 0.2506273389, alpha: 1)
+       
+        let tabBarController = UITabBarController()
+//        #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        tabBarController.viewControllers = [homeViewController, searchViewController, articleViewController, profileViewController]
+        
+        navigationController?.pushViewController(tabBarController, animated: true)
+        
+    }
+    
+    @objc func forgotPasswordTapped(){
         let forgotPassword = ForgotPasswordViewController()
         navigationController?.pushViewController(forgotPassword, animated: true)
         
