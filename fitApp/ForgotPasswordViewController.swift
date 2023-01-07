@@ -24,12 +24,16 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         addSubviews()
         setContstraints()
 
-        strokeLayer.strokeColor = #colorLiteral(red: 0.1320899725, green: 0.7720097303, blue: 0.3664159775, alpha: 1)
-        strokeLayer.lineWidth = 2
-        strokeLayer.isHidden = true
+//        strokeLayer.strokeColor = #colorLiteral(red: 0.1320899725, green: 0.7720097303, blue: 0.3664159775, alpha: 1)
+//        strokeLayer.lineWidth = 2
+//        strokeLayer.isHidden = true
         let strokePath = UIBezierPath(roundedRect: emailField.bounds, cornerRadius: 8)
-        strokeLayer.path = strokePath.cgPath
-        emailField.layer.addSublayer(strokeLayer)
+        emailField.layer.cornerRadius = 8.0
+        emailField.layer.masksToBounds = true
+        emailField.layer.borderColor = UIColor.red.cgColor
+        emailField.layer.borderWidth = 1.0
+//        strokeLayer.path = strokePath.cgPath
+//        emailField.layer.addSublayer(strokeLayer)
         emailField.delegate = self
 
     }
