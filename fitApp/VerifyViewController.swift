@@ -7,8 +7,12 @@
 
 import UIKit
 
-class VerifyViewController: UIViewController {
-
+class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+   
+    
+    private var collectionView: UICollectionView?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
@@ -16,7 +20,18 @@ class VerifyViewController: UIViewController {
         
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 327, height: 72)
+
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        guard let collectionView = collectionView else {
+            return
+        }
+       
+        collectionView.register(VerificationMethodViewCell.self, forCellWithReuseIdentifier: VerificationMethodViewCell.identifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
 //        mainCollectionView.dataSource = self
 //        mainCollectionView.delegate = self
 //        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -104,11 +119,16 @@ class VerifyViewController: UIViewController {
     func addSubviews(){
 //        labelStackView.addArrangedSubview(verify)
         labelStackView.addArrangedSubview(methodLabel)
-       
+        guard let collectionView = collectionView else {
+            return
+        }
+        verificationTypeStackView.addArrangedSubview(collectionView)
 //        verificationTypeStackView.addArrangedSubview(mainCollectionView )
         view.addSubview(labelStackView)
         view.addSubview(verificationTypeStackView)
+
         view.addSubview(continueButton)
+       
     }
     
     
@@ -128,11 +148,26 @@ class VerifyViewController: UIViewController {
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            
+            
         
         ])
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VerificationMethodViewCell.identifier, for: indexPath) as! VerificationMethodViewCell
+        if indexPath.row == 0 {
+            cell.configure(label: "Email")
+        } else {
+            cell.configure(label: "Phone Number")
+        }
+        
+        return cell
+    }
 }
 
 //extension VerifyViewController: UICollectionViewDataSource, UICollectionViewDelegate {
