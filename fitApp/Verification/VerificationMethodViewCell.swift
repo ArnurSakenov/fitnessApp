@@ -13,9 +13,10 @@ class VerificationMethodViewCell: UICollectionViewCell {
     private let verificationIcon: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "house")
-        image.backgroundColor = .yellow
+        image.layer.cornerRadius = 8
         image.clipsToBounds = true
+        image.clipsToBounds = true
+       
         return image
     }()
     
@@ -23,7 +24,7 @@ class VerificationMethodViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Email"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .green
+        
         label.textColor = UIColor(red: 0.973, green: 0.98, blue: 0.988, alpha: 1)
         label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         
@@ -32,7 +33,7 @@ class VerificationMethodViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
          addSubviews()
          setupConstraints()
         
@@ -46,8 +47,9 @@ class VerificationMethodViewCell: UICollectionViewCell {
         verificationIcon.frame = CGRect(x: 0, y: 0, width: 48, height: 48)
         verificationNameLabel.frame = CGRect(x: 0, y: 0, width: 36, height: 20)
     }
-    public func configure(label: String){
+    public func configure(label: String, image: UIImage){
         verificationNameLabel.text = label
+        verificationIcon.image = image
     }
     override func prepareForReuse() {
         super.prepareForReuse()

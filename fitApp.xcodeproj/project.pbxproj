@@ -24,6 +24,8 @@
 		58D6B2B42968362B0040FE6C /* AdditionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6B2B32968362B0040FE6C /* AdditionalTableViewCell.swift */; };
 		58D6B2B6296836410040FE6C /* AdditionalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6B2B5296836410040FE6C /* AdditionalCollectionViewCell.swift */; };
 		5F173B31295DD1000069A78B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F173B30295DD0FF0069A78B /* SignUpViewController.swift */; };
+		5FA4C4B4296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4C4B3296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift */; };
+		5FA4C4B6296C45F5000CF3D3 /* EmailVerficationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4C4B5296C45F5000CF3D3 /* EmailVerficationViewController.swift */; };
 		5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC0295C11570065071E /* AppDelegate.swift */; };
 		5FA8BDC3295C11570065071E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC2295C11570065071E /* SceneDelegate.swift */; };
 		5FA8BDCA295C11580065071E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA8BDC9295C11580065071E /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		58D6B2B32968362B0040FE6C /* AdditionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTableViewCell.swift; sourceTree = "<group>"; };
 		58D6B2B5296836410040FE6C /* AdditionalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F173B30295DD0FF0069A78B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5FA4C4B3296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerificationViewController.swift; sourceTree = "<group>"; };
+		5FA4C4B5296C45F5000CF3D3 /* EmailVerficationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerficationViewController.swift; sourceTree = "<group>"; };
 		5FA8BDBD295C11570065071E /* fitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA8BDC0295C11570065071E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FA8BDC2295C11570065071E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,17 @@
 			path = HomeViewControllers;
 			sourceTree = "<group>";
 		};
+		5F952A4D296C1B9000429B27 /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				5FE72AB72966BF8800BEB64B /* VerifyViewController.swift */,
+				5FF2E6C729699CEA00F5414A /* VerificationMethodViewCell.swift */,
+				5FA4C4B3296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift */,
+				5FA4C4B5296C45F5000CF3D3 /* EmailVerficationViewController.swift */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
 		5FA8BDB4295C11570065071E = {
 			isa = PBXGroup;
 			children = (
@@ -132,11 +147,10 @@
 				068139B72966C00E00BB745C /* EnterNewPasswordViewController.swift */,
 				58551571295DB9CC00A95485 /* OnboardingViewController.swift */,
 				5F173B30295DD0FF0069A78B /* SignUpViewController.swift */,
-				5FE72AB72966BF8800BEB64B /* VerifyViewController.swift */,
-				5FF2E6C729699CEA00F5414A /* VerificationMethodViewCell.swift */,
 				5FA8BDC9295C11580065071E /* Assets.xcassets */,
 				5FA8BDCB295C11580065071E /* LaunchScreen.storyboard */,
 				5FA8BDCE295C11580065071E /* Info.plist */,
+				5F952A4D296C1B9000429B27 /* Verification */,
 				58D6B2A929682A3C0040FE6C /* TabBarControllers */,
 			);
 			path = fitApp;
@@ -217,10 +231,12 @@
 				58B62C08296B162200C77B3A /* AmrapViewController.swift in Sources */,
 				068139B82966C00E00BB745C /* EnterNewPasswordViewController.swift in Sources */,
 				58D6B2B42968362B0040FE6C /* AdditionalTableViewCell.swift in Sources */,
+				5FA4C4B4296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift in Sources */,
 				5F173B31295DD1000069A78B /* SignUpViewController.swift in Sources */,
 				5FA8BDC1295C11570065071E /* AppDelegate.swift in Sources */,
 				58B62C0A296B1F3C00C77B3A /* AmrapTableViewCell.swift in Sources */,
 				5FF2E6C829699CEA00F5414A /* VerificationMethodViewCell.swift in Sources */,
+				5FA4C4B6296C45F5000CF3D3 /* EmailVerficationViewController.swift in Sources */,
 				068139B62966A95900BB745C /* ForgotPasswordViewController.swift in Sources */,
 				58D6B2A629682A1F0040FE6C /* ArticleViewController.swift in Sources */,
 				58D6B2A829682A2E0040FE6C /* ProfileViewController.swift in Sources */,
