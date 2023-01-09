@@ -161,7 +161,7 @@ class LoginViewController: UIViewController {
             image: UIImage(named: "home"),
             selectedImage: UIImage(named: "home1")
         )
-        
+    
         let searchViewController = UINavigationController(rootViewController: SearchViewController())
         searchViewController.tabBarItem = UITabBarItem(
             title: "",
@@ -188,8 +188,21 @@ class LoginViewController: UIViewController {
         let tabBarController = UITabBarController()
 //        #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
         tabBarController.viewControllers = [homeViewController, searchViewController, articleViewController, profileViewController]
-        
-        navigationController?.pushViewController(tabBarController, animated: true)
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+
+        guard let rootViewController = window.rootViewController else {
+            return
+        }
+
+        let viewController = tabBarController
+        viewController.view.frame = rootViewController.view.frame
+        viewController.view.layoutIfNeeded()
+
+        UIView.transition(with: window, duration: 0.6, options: .transitionFlipFromLeft, animations: {
+            window.rootViewController = viewController
+        }, completion: nil)
         
     }
     
