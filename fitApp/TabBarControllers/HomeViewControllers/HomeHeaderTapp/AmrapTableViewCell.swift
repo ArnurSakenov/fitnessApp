@@ -23,7 +23,6 @@ class AmrapTableViewCell: UITableViewCell {
     
     var backgroundImage: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(named: "imageHeader")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
@@ -155,4 +154,5 @@ class AmrapTableViewCell: UITableViewCell {
         ratingTraining.text = "⭐️ \(info.rating)  "
     }
 }
+
 

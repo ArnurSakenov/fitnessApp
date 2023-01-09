@@ -10,6 +10,8 @@
 		06635E6C29654E0100504ABE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06635E6B29654E0100504ABE /* LoginViewController.swift */; };
 		068139B62966A95900BB745C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068139B52966A95900BB745C /* ForgotPasswordViewController.swift */; };
 		068139B82966C00E00BB745C /* EnterNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068139B72966C00E00BB745C /* EnterNewPasswordViewController.swift */; };
+		584B4DC6296C7D6200B1A3D1 /* DetailWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B4DC5296C7D6200B1A3D1 /* DetailWorkoutViewController.swift */; };
+		584B4DC8296C7D8900B1A3D1 /* DetailWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B4DC7296C7D8900B1A3D1 /* DetailWorkoutTableViewCell.swift */; };
 		58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58551571295DB9CC00A95485 /* OnboardingViewController.swift */; };
 		58B62C08296B162200C77B3A /* AmrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B62C07296B162200C77B3A /* AmrapViewController.swift */; };
 		58B62C0A296B1F3C00C77B3A /* AmrapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B62C09296B1F3C00C77B3A /* AmrapTableViewCell.swift */; };
@@ -38,6 +40,8 @@
 		06635E6B29654E0100504ABE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		068139B52966A95900BB745C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		068139B72966C00E00BB745C /* EnterNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNewPasswordViewController.swift; sourceTree = "<group>"; };
+		584B4DC5296C7D6200B1A3D1 /* DetailWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWorkoutViewController.swift; sourceTree = "<group>"; };
+		584B4DC7296C7D8900B1A3D1 /* DetailWorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		58551571295DB9CC00A95485 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		58B62C07296B162200C77B3A /* AmrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmrapViewController.swift; sourceTree = "<group>"; };
 		58B62C09296B1F3C00C77B3A /* AmrapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmrapTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 			children = (
 				58B62C07296B162200C77B3A /* AmrapViewController.swift */,
 				58B62C09296B1F3C00C77B3A /* AmrapTableViewCell.swift */,
+				584B4DC5296C7D6200B1A3D1 /* DetailWorkoutViewController.swift */,
+				584B4DC7296C7D8900B1A3D1 /* DetailWorkoutTableViewCell.swift */,
 			);
 			path = HomeHeaderTapp;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 				58D6B2A429682A020040FE6C /* SearchViewController.swift in Sources */,
 				58D6B2B22968314F0040FE6C /* Resource.swift in Sources */,
 				58B62C08296B162200C77B3A /* AmrapViewController.swift in Sources */,
+				584B4DC6296C7D6200B1A3D1 /* DetailWorkoutViewController.swift in Sources */,
 				068139B82966C00E00BB745C /* EnterNewPasswordViewController.swift in Sources */,
 				58D6B2B42968362B0040FE6C /* AdditionalTableViewCell.swift in Sources */,
 				5FA4C4B4296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift in Sources */,
@@ -245,6 +252,7 @@
 				58D6B2A2296829CB0040FE6C /* HomeViewController.swift in Sources */,
 				58D6B2AE296830BB0040FE6C /* TrendingTableViewCell.swift in Sources */,
 				58D6B2B6296836410040FE6C /* AdditionalCollectionViewCell.swift in Sources */,
+				584B4DC8296C7D8900B1A3D1 /* DetailWorkoutTableViewCell.swift in Sources */,
 				58D6B2B0296831010040FE6C /* TrendingCollectionViewCell.swift in Sources */,
 				5FE72AB82966BF8800BEB64B /* VerifyViewController.swift in Sources */,
 				06635E6C29654E0100504ABE /* LoginViewController.swift in Sources */,

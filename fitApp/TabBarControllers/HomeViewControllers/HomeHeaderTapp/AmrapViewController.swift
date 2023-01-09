@@ -13,7 +13,6 @@ class AmrapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
         view.addSubview(tableView)
         setupConstraints()
         navBarSettings()
@@ -55,9 +54,14 @@ class AmrapViewController: UIViewController {
 
 extension AmrapViewController: UITableViewDelegate, UITableViewDataSource{
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let workout = exampleAdditionalTraining[indexPath.row]
+        let detailWorkoutViewController = DetailWorkoutViewController()
+        detailWorkoutViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(detailWorkoutViewController, animated: true )
+        detailWorkoutViewController.workout = workout
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         exampleAdditionalTraining.count
     }
@@ -72,4 +76,13 @@ extension AmrapViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
 }
- 
+
+extension AmrapViewController {
+    func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    func showNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+}
