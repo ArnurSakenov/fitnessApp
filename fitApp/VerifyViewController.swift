@@ -7,16 +7,34 @@
 
 import UIKit
 
-class VerifyViewController: UIViewController {
-
+class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+   
+    
+    private var collectionView: UICollectionView?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
         title = "Verify your identity"
         
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-       
         navigationController?.navigationBar.prefersLargeTitles = true
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 327, height: 72)
+
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        guard let collectionView = collectionView else {
+            return
+        }
+        collectionView.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        collectionView.register(VerificationMethodViewCell.self, forCellWithReuseIdentifier: VerificationMethodViewCell.identifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+//        mainCollectionView.dataSource = self
+//        mainCollectionView.delegate = self
 //        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         addSubviews()
         setContstraints()
@@ -39,21 +57,23 @@ class VerifyViewController: UIViewController {
         return button
     }()
     
-  
+//    private let mainCollectionView: UICollectionView = {
+//        var collection = UICollectionView()
+//        collection.translatesAutoresizingMaskIntoConstraints = false
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top:20, left: 10, bottom: 10, right: 10)
+//        layout.itemSize = CGSize(width: 60, height: 60)
+//        collection.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+//        collection = UICollectionView(frame: CGRect(x: 150, y: 150, width: 50, height: 50), collectionViewLayout: layout)
+//        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+//
+//
+//        return collection
+//    }()
     
-    private let emailViewBlock: UIView = {
-        let block = UIView(frame: CGRect(x: 0, y: 0, width: 327, height: 72))
-        block.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
-        
-        return block
-    }()
+
     
-    private let phoneNumberView: UIView = {
-        let block = UIView(frame: CGRect(x: 150, y: 150, width: 50, height: 50))
-        block.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
-      
-        return block
-    }()
+   
     
     private let methodLabel: UILabel = {
         let label = UILabel()
@@ -100,11 +120,16 @@ class VerifyViewController: UIViewController {
     func addSubviews(){
 //        labelStackView.addArrangedSubview(verify)
         labelStackView.addArrangedSubview(methodLabel)
-        verificationTypeStackView.addArrangedSubview(emailViewBlock)
-        verificationTypeStackView.addArrangedSubview(phoneNumberView)
+        guard let collectionView = collectionView else {
+            return
+        }
+        verificationTypeStackView.addArrangedSubview(collectionView)
+//        verificationTypeStackView.addArrangedSubview(mainCollectionView )
         view.addSubview(labelStackView)
         view.addSubview(verificationTypeStackView)
+
         view.addSubview(continueButton)
+       
     }
     
     
@@ -124,8 +149,41 @@ class VerifyViewController: UIViewController {
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            
+            
         
         ])
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VerificationMethodViewCell.identifier, for: indexPath) as! VerificationMethodViewCell
+        if indexPath.row == 0 {
+            cell.configure(label: "Email")
+        } else {
+            cell.configure(label: "Phone Number")
+        }
+        
+        return cell
+    }
 }
+
+//extension VerifyViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 2
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+//        cell.backgroundColor = UIColor.blue
+//        return cell
+//    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("ough")
+//    }
+//
+//
+//}
