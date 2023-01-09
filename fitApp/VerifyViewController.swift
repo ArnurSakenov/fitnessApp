@@ -25,10 +25,11 @@ class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollec
         layout.itemSize = CGSize(width: 327, height: 72)
 
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         guard let collectionView = collectionView else {
             return
         }
-       
+        collectionView.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
         collectionView.register(VerificationMethodViewCell.self, forCellWithReuseIdentifier: VerificationMethodViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
