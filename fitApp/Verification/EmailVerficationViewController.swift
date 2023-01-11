@@ -12,11 +12,13 @@ class EmailVerficationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
-        title = "Phone Number"
+        title = "Email"
         navigationController?.navigationBar.largeTitleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        addSubviews()
+        setContstraints()
         
         // Do any additional setup after loading the view.
     }
@@ -24,10 +26,14 @@ class EmailVerficationViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     private let verifyButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Verify", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.1320899725, green: 0.7720097303, blue: 0.3664159775, alpha: 1)
@@ -38,7 +44,8 @@ class EmailVerficationViewController: UIViewController {
     
     private let methodLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 16)
        
         label.text = "We're going to send you a verification code to confirm your identity"
@@ -48,9 +55,22 @@ class EmailVerficationViewController: UIViewController {
     }()
     
     private let phoneTextField: UITextField = {
-       let field = UITextField()
-        field.backgroundColor = .green
-        return field
+        let login = UITextField()
+        login.translatesAutoresizingMaskIntoConstraints = false
+        login.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+        login.leftViewMode = .always
+        login.attributedPlaceholder = NSAttributedString (
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.58187747, green: 0.6370299459, blue: 0.7215286493, alpha: 1)])
+        login.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: login.frame.height))
+        login.keyboardType = .emailAddress
+        login.textColor = .white
+        login.font = UIFont.systemFont(ofSize: 16)
+        login.autocapitalizationType = .none
+        login.returnKeyType = .done
+        login.layer.cornerRadius = 8
+        login.clipsToBounds = true
+        return login
     }()
     func addSubviews(){
 //        labelStackView.addArrangedSubview(verify)
@@ -72,12 +92,12 @@ class EmailVerficationViewController: UIViewController {
             
            
             
-            phoneTextField.topAnchor.constraint(equalTo: methodLabel.bottomAnchor, constant: 40),
-            phoneTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -439),
+            phoneTextField.heightAnchor.constraint(equalToConstant: 56),
+            phoneTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -531),
             phoneTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24 ),
             phoneTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             
-            verifyButton.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 333),
+            verifyButton.heightAnchor.constraint(equalToConstant: 56),
             verifyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             verifyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             verifyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
@@ -86,14 +106,5 @@ class EmailVerficationViewController: UIViewController {
         
         ])
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

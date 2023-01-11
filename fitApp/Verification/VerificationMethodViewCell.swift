@@ -33,7 +33,7 @@ class VerificationMethodViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+        
          addSubviews()
          setupConstraints()
         

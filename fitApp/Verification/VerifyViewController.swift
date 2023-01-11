@@ -32,7 +32,7 @@ class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollec
             return
         }
         
-        collectionView.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(VerificationMethodViewCell.self, forCellWithReuseIdentifier: VerificationMethodViewCell.identifier)
         collectionView.dataSource = self
@@ -49,7 +49,10 @@ class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     private let continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -163,7 +166,7 @@ class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VerificationMethodViewCell.identifier, for: indexPath) as! VerificationMethodViewCell
-     
+        cell.backgroundColor = #colorLiteral(red: 0.1160912886, green: 0.1620997787, blue: 0.2332904935, alpha: 1)
         if indexPath.row == 0 {
             cell.configure(label: "Email", image: UIImage(named: "mailIcon")! )
             
@@ -172,6 +175,17 @@ class VerifyViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc:UIViewController?
+        if indexPath.row == 0 {
+            vc = EmailVerficationViewController()
+        }else {
+             
+            vc = PhoneNumberVerificationViewController()
+        }
+        guard let vc = vc else {return}
+        navigationController?.pushViewController(vc, animated: true )
     }
 }
 
