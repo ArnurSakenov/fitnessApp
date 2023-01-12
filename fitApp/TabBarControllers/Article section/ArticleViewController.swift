@@ -17,12 +17,20 @@ class ArticleViewController: UIViewController,UITableViewDelegate,UITableViewDat
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
         
         view.backgroundColor = #colorLiteral(red: 0.06831752509, green: 0.09892357141, blue: 0.1700796187, alpha: 1)
-        tableView.delegate = self
-        tableView.dataSource = self
+       
         addSubViews()
         setConstraints()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-  
+    private var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(MoreArticleTableViewCell.self, forCellReuseIdentifier: MoreArticleTableViewCell.identifier)
+        
+        tableView.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        return tableView
+    }()
     private let searchTextField: UITextField = {
         let login = UITextField()
         login.translatesAutoresizingMaskIntoConstraints = false
@@ -114,15 +122,7 @@ class ArticleViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         ])
     }
-    private var tableView: UITableView = {
-        let tableView = UITableView()
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MoreArticleTableViewCell.self, forCellReuseIdentifier: MoreArticleTableViewCell.identifier)
-        
-        
-        return tableView
-    }()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -130,7 +130,10 @@ class ArticleViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MoreArticleTableViewCell.identifier ,for: indexPath) as! MoreArticleTableViewCell
-        cell.translatesAutoresizingMaskIntoConstraints = false 
+        cell.translatesAutoresizingMaskIntoConstraints = false
+        cell.articleThesisCell.text = "d"
+        cell.articleImage.image = UIImage(named: "articleImage")
+        cell.articleDateCell.text = "ddd"
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -22,7 +22,7 @@ class MoreArticleTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private let articleThesisCell: UILabel = {
+     let articleThesisCell: UILabel = {
          let label = UILabel()
          
          label.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class MoreArticleTableViewCell: UITableViewCell {
         label.attributedText = NSMutableAttributedString(string: "The Power of Dirt: The Benefits of Outdoor Workouts ", attributes: [NSAttributedString.Key.kern: 0.2, NSAttributedString.Key.paragraphStyle: paragraphStyle])
          return label
      }()
-    private let articleDateCell: UILabel = {
+     let articleDateCell: UILabel = {
          let label = UILabel()
          label.text = "November 14, 2021 3 min read"
          label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,7 @@ class MoreArticleTableViewCell: UITableViewCell {
         
          return label
      }()
-   private var articleImage: UIImageView = {
+    var articleImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "articleImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,18 +61,16 @@ class MoreArticleTableViewCell: UITableViewCell {
         let stack = UIStackView ()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        
+        stack.clipsToBounds = true
         stack.spacing = 22
         return stack
     }()
     
     func addSubViews() {
-        
-       
-        StackView.addArrangedSubview(articleThesisCell)
-        StackView.addArrangedSubview(articleDateCell)
         contentView.addSubview(StackView)
         contentView.addSubview(articleImage)
+        StackView.addArrangedSubview(articleThesisCell)
+        StackView.addArrangedSubview(articleDateCell)
     }
     
     func setConstraints(){
