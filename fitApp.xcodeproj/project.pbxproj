@@ -25,6 +25,8 @@
 		58D6B2B22968314F0040FE6C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6B2B12968314F0040FE6C /* Resource.swift */; };
 		58D6B2B42968362B0040FE6C /* AdditionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6B2B32968362B0040FE6C /* AdditionalTableViewCell.swift */; };
 		58D6B2B6296836410040FE6C /* AdditionalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D6B2B5296836410040FE6C /* AdditionalCollectionViewCell.swift */; };
+		5F0A1D2F296FF2F80068A823 /* MoreArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0A1D2E296FF2F80068A823 /* MoreArticleTableViewCell.swift */; };
+		5F0A1D31296FF63A0068A823 /* ExactArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0A1D30296FF63A0068A823 /* ExactArticleViewController.swift */; };
 		5F173B31295DD1000069A78B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F173B30295DD0FF0069A78B /* SignUpViewController.swift */; };
 		5FA4C4B4296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4C4B3296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift */; };
 		5FA4C4B6296C45F5000CF3D3 /* EmailVerficationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4C4B5296C45F5000CF3D3 /* EmailVerficationViewController.swift */; };
@@ -55,6 +57,8 @@
 		58D6B2B12968314F0040FE6C /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		58D6B2B32968362B0040FE6C /* AdditionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTableViewCell.swift; sourceTree = "<group>"; };
 		58D6B2B5296836410040FE6C /* AdditionalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCollectionViewCell.swift; sourceTree = "<group>"; };
+		5F0A1D2E296FF2F80068A823 /* MoreArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreArticleTableViewCell.swift; sourceTree = "<group>"; };
+		5F0A1D30296FF63A0068A823 /* ExactArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExactArticleViewController.swift; sourceTree = "<group>"; };
 		5F173B30295DD0FF0069A78B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5FA4C4B3296C45E3000CF3D3 /* PhoneNumberVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerificationViewController.swift; sourceTree = "<group>"; };
 		5FA4C4B5296C45F5000CF3D3 /* EmailVerficationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerficationViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +99,7 @@
 			children = (
 				58D6B2AA29682FF70040FE6C /* HomeViewControllers */,
 				58D6B2A329682A020040FE6C /* SearchViewController.swift */,
-				58D6B2A529682A1F0040FE6C /* ArticleViewController.swift */,
+				5F07243C296ED82800E9D979 /* Article section */,
 				58D6B2A729682A2E0040FE6C /* ProfileViewController.swift */,
 			);
 			path = TabBarControllers;
@@ -114,6 +118,16 @@
 				58D6B2B12968314F0040FE6C /* Resource.swift */,
 			);
 			path = HomeViewControllers;
+			sourceTree = "<group>";
+		};
+		5F07243C296ED82800E9D979 /* Article section */ = {
+			isa = PBXGroup;
+			children = (
+				58D6B2A529682A1F0040FE6C /* ArticleViewController.swift */,
+				5F0A1D2E296FF2F80068A823 /* MoreArticleTableViewCell.swift */,
+				5F0A1D30296FF63A0068A823 /* ExactArticleViewController.swift */,
+			);
+			path = "Article section";
 			sourceTree = "<group>";
 		};
 		5F952A4D296C1B9000429B27 /* Verification */ = {
@@ -248,11 +262,13 @@
 				58D6B2A629682A1F0040FE6C /* ArticleViewController.swift in Sources */,
 				58D6B2A829682A2E0040FE6C /* ProfileViewController.swift in Sources */,
 				58D6B2AC2968307C0040FE6C /* TrendingHeaderTableView.swift in Sources */,
+				5F0A1D2F296FF2F80068A823 /* MoreArticleTableViewCell.swift in Sources */,
 				58551572295DB9CC00A95485 /* OnboardingViewController.swift in Sources */,
 				58D6B2A2296829CB0040FE6C /* HomeViewController.swift in Sources */,
 				58D6B2AE296830BB0040FE6C /* TrendingTableViewCell.swift in Sources */,
 				58D6B2B6296836410040FE6C /* AdditionalCollectionViewCell.swift in Sources */,
 				584B4DC8296C7D8900B1A3D1 /* DetailWorkoutTableViewCell.swift in Sources */,
+				5F0A1D31296FF63A0068A823 /* ExactArticleViewController.swift in Sources */,
 				58D6B2B0296831010040FE6C /* TrendingCollectionViewCell.swift in Sources */,
 				5FE72AB82966BF8800BEB64B /* VerifyViewController.swift in Sources */,
 				06635E6C29654E0100504ABE /* LoginViewController.swift in Sources */,
