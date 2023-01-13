@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     static let headerIdent = "TrendingHeaderTableView"
     static let cellIdent = "TrendingTableViewCell"
@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationItem.hidesBackButton = true
         view.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
         navigationItem.titleView = createCustomTitleView()
         view.addSubview(tableView)
@@ -46,10 +45,8 @@ class HomeViewController: UIViewController {
     }
     
     func createCustomTitleView() -> UIView {
-        
         let viewForNav = UIView()
         viewForNav.frame = CGRect(x: 22, y: 0, width: 300, height: 41)
-//        view.backgroundColor = .red
         let nameLabel = UILabel()
         nameLabel.text = "Hello, Maria!"
         nameLabel.font = UIFont.systemFont(ofSize: 14)
@@ -63,7 +60,6 @@ class HomeViewController: UIViewController {
         descriptionLabel.font = UIFont.systemFont(ofSize: 16)
         descriptionLabel.textColor = .white
         viewForNav.addSubview(descriptionLabel)
-       
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(notificationTapped))
         self.navigationItem.rightBarButtonItem?.setBackgroundImage(UIImage(named: "icon1"), for: .normal, barMetrics: UIBarMetrics.default)
         
@@ -106,7 +102,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         guard section == 0 else { return nil }
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeViewController.headerIdent) as! TrendingHeaderTableView
         headerView.config(info: exampleAdditionalTraining[0])
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+           tapRecognizer.delegate = self
+           tapRecognizer.numberOfTapsRequired = 1
+           tapRecognizer.numberOfTouchesRequired = 1
+           headerView.addGestureRecognizer(tapRecognizer)
         return headerView
+    }
+    
+    @objc func handleTap(gestureRecognizer: UIGestureRecognizer){
+        let amrapVC = AmrapViewController()
+        navigationController?.pushViewController(amrapVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

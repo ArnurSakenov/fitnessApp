@@ -1,20 +1,20 @@
 //
-//  TrendingHeaderTableView.swift
+//  AmrapTableViewCell.swift
 //  fitApp
 //
-//  Created by Artyom Prima on 06.01.2023.
+//  Created by Artyom Prima on 08.01.2023.
 //
 
 import UIKit
 
-class TrendingHeaderTableView: UITableViewHeaderFooterView {
-
-    let photoIdent = "photoCell"
+class AmrapTableViewCell: UITableViewCell {
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubviews()
         setConstraints()
         contentView.backgroundColor = #colorLiteral(red: 0.06831727177, green: 0.09892369062, blue: 0.1742413342, alpha: 1)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -23,22 +23,11 @@ class TrendingHeaderTableView: UITableViewHeaderFooterView {
     
     var backgroundImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "imageHeader")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 1
         return imageView
-    }()
-    
-    let trendingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Trending Workouts 🔥"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.textColor = .white
-        label.textAlignment = .left
-        return label
     }()
     
     var forView: UIView = {
@@ -122,8 +111,7 @@ class TrendingHeaderTableView: UITableViewHeaderFooterView {
         return stack
     }()
     
-    func setConstraints(){
-        contentView.addSubview(trendingLabel)
+    func addSubviews(){
         contentView.addSubview(backgroundImage)
         contentView.addSubview(forView)
         forView.addSubview(timeStackView)
@@ -137,12 +125,13 @@ class TrendingHeaderTableView: UITableViewHeaderFooterView {
         
         nameStackView.addArrangedSubview(nameTraining)
         nameStackView.addArrangedSubview(timeStackView)
+        
+    }
+    
+    func setConstraints(){
+       
         NSLayoutConstraint.activate([
-            trendingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 26),
-            trendingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            trendingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-
-            backgroundImage.topAnchor.constraint(equalTo: trendingLabel.bottomAnchor, constant: 16),
+            backgroundImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             backgroundImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             forView.topAnchor.constraint(equalTo: backgroundImage.topAnchor, constant: 130),
